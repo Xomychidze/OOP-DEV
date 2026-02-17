@@ -8,7 +8,7 @@ public class GradebookApp {
         Gradebook gradebook = new Gradebook(course);
         List<Student> students = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
-            students.add(new Student("Student" + i, "desc", 3, "pic.png"));
+            students.add(new Student("Student" + i, "desc", 3));
         }
         Random rand = new Random();
         for (Student s : students) {
@@ -26,13 +26,11 @@ class Student {
     private String name;
     private String description;
     private int credits;
-    private String pictureFile;
 
-    public Student(String name, String description, int credits, String pictureFile) {
+    public Student(String name, String description, int credits) {
         this.name = name;
         this.description = description;
         this.credits = credits;
-        this.pictureFile = pictureFile;
     }
 
     public String getName() {

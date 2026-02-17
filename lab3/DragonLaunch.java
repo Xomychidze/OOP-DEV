@@ -8,6 +8,7 @@ enum Gender {
 public class DragonLaunch {
     private Vector<Person> kidnappedPeople = new Vector<>();
 
+    
     public void kidnap(Person p) {
         kidnappedPeople.add(p);
         willDragonEatOrNot();
