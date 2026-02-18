@@ -27,6 +27,11 @@ public class Dog extends Animal {
         System.out.printf("this dog eat: %s", food.getName());
     }
 
+    @Override
+    public void eat(){
+        System.out.println("Dogs not eats");
+    }
+
     public String getBreed() {
         return breed;
     }
