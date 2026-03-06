@@ -1,9 +1,9 @@
-public class Employee extends Person {
+public class Employees extends Persons {
 
     private String employeeId;
     private String department;
 
-    public Employee(String name, int age, String employeeId, String department) {
+    public Employees(String name, int age, String employeeId, String department) {
         super(name, age);
         this.employeeId = employeeId;
         this.department = department;
@@ -16,9 +16,9 @@ public class Employee extends Person {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Employee)) return false;
+        if (!(o instanceof Employees)) return false;
 
-        Employee e = (Employee) o;
+        Employees e = (Employees) o;
         return employeeId.equals(e.employeeId);
     }
 
@@ -32,7 +32,5 @@ public class Employee extends Person {
         return getName() + " id:" + employeeId + " dept:" + department;
     }
 
-    public String getOccupation() {
-        return "Employee";
-    }
+
 }

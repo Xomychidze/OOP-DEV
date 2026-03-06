@@ -1,36 +1,35 @@
-package problem1c;
 import java.util.HashSet;
 import java.util.Set;
 
 public class TestPersonEmployee {
     public static void main(String[] args) {
         System.out.println("=== Testing Person with HashSet ===");
-        Set<Person> people = new HashSet<>();
-        Person p1 = new Person("Alice", 30);
-        Person p2 = new Person("Bob", 25);
-        Person p3 = new Person("Alice", 30); 
+        Set<Persons> people = new HashSet<>();
+        Persons p1 = new Persons("Alice", 30);
+        Persons p2 = new Persons("Bob", 25);
+        Persons p3 = new Persons("Alice", 30); 
 
         people.add(p1);
         people.add(p2);
         people.add(p3); 
 
         System.out.println("People in set (expected 2): " + people.size());
-        for (Person p : people) {
+        for (Persons p : people) {
             System.out.println("  " + p);
         }
 
         System.out.println("\n=== Testing Employee with HashSet ===");
-        Set<Employee> employees = new HashSet<>();
-        Employee e1 = new Employee("John", 40, "E001", "Engineering");
-        Employee e2 = new Employee("Sara", 35, "E002", "Marketing");
-        Employee e3 = new Employee("Different Name", 99, "E001", "HR"); // same ID as e1 -> duplicate
+        Set<Employees> employees = new HashSet<>();
+        Employees e1 = new Employees("John", 40, "E001", "Engineering");
+        Employees e2 = new Employees("Sara", 35, "E002", "Marketing");
+        Employees e3 = new Employees("Different Name", 99, "E001", "HR"); // same ID as e1 -> duplicate
 
         employees.add(e1);
         employees.add(e2);
         employees.add(e3); // should not be added (same employeeId)
 
         System.out.println("Employees in set (expected 2): " + employees.size());
-        for (Employee e : employees) {
+        for (Employees e : employees) {
             System.out.println("  " + e);
         }
 
