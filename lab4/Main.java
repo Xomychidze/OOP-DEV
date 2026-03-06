@@ -18,12 +18,12 @@ public class Main {
         System.out.println("\n=== Person / Student / Staff Demo ===");
 
         Person person = new Person("Alex", "Almaty");
-        System.out.println(person);
+        System.out.println(person.toString());
 
         Student student = new Student("Nurik", "Astana", "Computer Science", 2, 150000);
-        System.out.println(student);
+        System.out.println(student.toString());
 
         Staff staff = new Staff("John", "London", "IT School", 3000);
-        System.out.println(staff);
+        System.out.println(staff.toString());
     }
 }
