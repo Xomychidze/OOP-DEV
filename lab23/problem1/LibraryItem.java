@@ -1,3 +1,5 @@
+package lab23.problem1;
+
 public abstract class LibraryItem {
     private String title;
     private String author;
@@ -15,7 +17,7 @@ public abstract class LibraryItem {
 
     public void setTitle(String title) { this.title = title; }
     public void setAuthor(String author) { this.author = author; }
-    public void setPublicationYear(int publicationYear) { this.publicationYear = publicationYear; }
+    public void setPublicationYear(int year) { this.publicationYear = year; }
 
     public abstract String getItemType();
 
@@ -25,3 +27,5 @@ public abstract class LibraryItem {
                 getItemType(), title, author, publicationYear);
     }
 }
+
+
