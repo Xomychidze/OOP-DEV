@@ -301,7 +301,7 @@ class Board {
             }
         return false;
     }
-
+ 
     void draw() {
         System.out.println("\n    a   b   c   d   e   f   g   h  ");
         System.out.println("  ┌───┬───┬───┬───┬───┬───┬───┬───┐");
