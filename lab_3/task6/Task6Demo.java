@@ -137,7 +137,7 @@ class Animal implements Comparable<Animal>, Cloneable, Describable, Trainable {
         if (trickCount < tricks.length) {
             tricks[trickCount++] = trick;
             System.out.println(name + " learned trick: " + trick);
-        }
+        }\
     }
 
     @Override
