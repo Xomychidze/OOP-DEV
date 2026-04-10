@@ -9,39 +9,40 @@ public class Example4
         while (in.hasNextLine())
         {
             String line = in.nextLine().trim();
-            if (line.isEmpty()) break;
+            if (line.isEmpty())
+                continue;
 
-            // Split input line into individual expressions by whitespace
-            String[] expressions = line.split("\\s+");
+            StringTokenizer expressions = new StringTokenizer(line, " ", false);
 
-            for (String expr : expressions)
+            while (expressions.hasMoreTokens())
             {
-                processExpression(expr);
+                String expression = expressions.nextToken();
+                processExpression(expression);
             }
         }
     }
 
-    private static void processExpression(String expr)
+    private static void processExpression(String expression)
     {
-        StringTokenizer tokenizer = new StringTokenizer(expr, "+-*/", true);
+        double         leftOperand, rightOperand, result;
+        String         leftString, operator, rightString;
+        StringTokenizer tokenizer;
+
+        tokenizer = new StringTokenizer(expression, "+-*/", true);
 
         try
         {
-            String leftString  = tokenizer.nextToken();
-            String operator    = tokenizer.nextToken();
-            String rightString = tokenizer.nextToken();
+            leftString  = tokenizer.nextToken();
+            operator    = tokenizer.nextToken();
+            rightString = tokenizer.nextToken();
 
-            double leftOperand;
-            double rightOperand;
-
-            // Identify which operand is invalid
             try
             {
                 leftOperand = Double.parseDouble(leftString);
             }
-            catch (NumberFormatException e)
+            catch (NumberFormatException nfe)
             {
-                System.out.println("Left operand \"" + leftString + "\" is not a number");
+                System.out.println("Left operand '" + leftString + "' is not a number");
                 return;
             }
 
@@ -49,37 +50,38 @@ public class Example4
             {
                 rightOperand = Double.parseDouble(rightString);
             }
-            catch (NumberFormatException e)
+            catch (NumberFormatException nfe)
             {
-                System.out.println("Right operand \"" + rightString + "\" is not a number");
+                System.out.println("Right operand '" + rightString + "' is not a number");
                 return;
             }
 
-            double result;
-
-            switch (operator)
+            if (operator.equals("+"))
+                result = leftOperand + rightOperand;
+            else if (operator.equals("-"))
+                result = leftOperand - rightOperand;
+            else if (operator.equals("*"))
+                result = leftOperand * rightOperand;
+            else if (operator.equals("/"))
             {
-                case "+": result = leftOperand + rightOperand; break;
-                case "-": result = leftOperand - rightOperand; break;
-                case "*": result = leftOperand * rightOperand; break;
-                case "/":
-                    if (rightOperand == 0)
-                    {
-                        System.out.println("Error: division by zero in \"" + expr + "\"");
-                        return;
-                    }
-                    result = leftOperand / rightOperand;
-                    break;
-                default:
-                    System.out.println("Unknown operator: " + operator);
+                if (rightOperand == 0.0)
+                {
+                    System.out.println("Division by zero");
                     return;
+                }
+                result = leftOperand / rightOperand;
+            }
+            else
+            {
+                System.out.println("Unknown operator: " + operator);
+                return;
             }
 
             System.out.println("Result: " + result);
         }
         catch (NoSuchElementException nsee)
         {
-            System.out.println("Invalid syntax: \"" + expr + "\"");
+            System.out.println("Invalid syntax: " + expression);
         }
     }
 }

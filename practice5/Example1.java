@@ -18,6 +18,6 @@ public class Example1
             ae.printStackTrace();
         }
 
-        System.out.println("Done."); // Don't move this line
+        System.out.println("Done.");
     }
 }
